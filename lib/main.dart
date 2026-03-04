@@ -1,5 +1,6 @@
 import 'package:dmsn26/listeners/value_listener.dart';
 import 'package:dmsn26/screens/dashboard_screen.dart';
+import 'package:dmsn26/screens/list_cast_screen.dart';
 import 'package:dmsn26/screens/login_screen.dart';
 import 'package:dmsn26/utils/theme_app.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           home: LoginScreen(),
           routes: {
-            "/dash" : (context) => DashboardScreen() 
+            "/dash" : (context) => DashboardScreen(),
+            "/cast": (context) => const ListCastScreen()  
           },
           theme: value ? ThemeApp.WarmTheme() : ThemeData.light(),
         );
