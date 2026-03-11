@@ -23,14 +23,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
         currentIndex: _currentIndex,
         onTap: (i){ 
           setState(() => _currentIndex = i);
-          if( i == 3 ){
-            ValueListener.isDarkMode.value = !ValueListener.isDarkMode.value;
+          switch(i){
+            case 0: Navigator.pushNamed(context, "/cast"); break;
+            case 3: ValueListener.isDarkMode.value = !ValueListener.isDarkMode.value;
           }
         },
         items: [
           SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Home"),
+              icon: Icon(Icons.cast),
+              title: Text("Cast"),
               selectedColor: Colors.purple,
             ),
 

@@ -31,28 +31,28 @@ class CastDB {
         idCast INTEGER PRIMARY KEY,
         nameCast VARCHAR(50),
         birthCast CHAR(10),
-        gender CHAR(1),
+        gender CHAR(1)
       )
     ''';
     db.execute(query);
   }
 
-  Future<int> INSERT(Map<String,dynamic> data) async {
+    Future<int> INSERT(Map<String,dynamic> data) async {
     var conexion = await database;
     return conexion!.insert('tblCast', data);
   }
 
   Future<int> UPDATE(Map<String,dynamic> data) async {
     var conexion = await database;
-    return conexion!.update('tblCast', data, where: 'idCast = ?', whereArgs: [data['idCast']]);
+    return conexion!.update('tblCast', data, where: 'idCast = ?', whereArgs: [data['idCast']] );
   }
 
-  Future<int>DELETE(Map<String,dynamic> data) async {
+  Future<int> DELETE(int idCast) async {
     var conexion = await database;
-    return conexion!.delete('tblCast', where: 'idCast = ?', whereArgs: [data['idCast']]);
+    return conexion!.delete('tblCast',where: 'idCast = ?', whereArgs: [idCast]);
   }
 
-  Future<List<CastDAO>> SELECT() async {
+  Future<List<CastDAO>> SELECT() async{
     var conexion = await database;
     var res = await conexion!.query('tblCast');
     return res.map((cast) => CastDAO.fromMap(cast)).toList();

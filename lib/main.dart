@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           home: LoginScreen(),
           routes: {
             "/dash" : (context) => DashboardScreen(),
-            "/cast": (context) => const ListCastScreen()  
+            "/cast" : (context) => ListCastScreen() 
           },
           theme: value ? ThemeApp.WarmTheme() : ThemeData.light(),
         );
